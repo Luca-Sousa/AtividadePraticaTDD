@@ -7,4 +7,4 @@ def calcular_pontos(valor, categoria, aniversario=False):
     if aniversario:
         pontos += 500
 
-    return pontos
+    return min(pontos, 10000)

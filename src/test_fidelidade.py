@@ -27,5 +27,13 @@ class TestFidelidade(unittest.TestCase):
         # RED → GREEN: R$ 100,00, NORMAL, aniversário = 100 + 500 = 600 pontos
         self.assertEqual(calcular_pontos(valor=100.0, categoria='NORMAL', aniversario=True), 600)
 
+    # =========================================================
+    # UC04 — Limite de Pontuação por Operação
+    # Regra: nenhuma compra pode gerar mais de 10.000 pontos
+    # =========================================================
+    def test_limite_pontuacao(self):
+        # RED → GREEN: R$ 20.000,00, NORMAL deve retornar no máximo 10.000 pontos
+        self.assertEqual(calcular_pontos(valor=20000.0, categoria='NORMAL'), 10000)
+
 if __name__ == '__main__':
     unittest.main()
